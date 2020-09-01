@@ -10,7 +10,7 @@ db.init();
 const app: express.Application = express();
 app.get("/insert", async (req: any, res: any) => {
   await db.insert();
-  res.statusCode = 400;
+  res.statusCode = 200;
   res.json("success");
 });
 

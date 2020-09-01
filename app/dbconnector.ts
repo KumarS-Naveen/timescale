@@ -45,7 +45,13 @@ return this.dbConnector.schema.createTable("TimeTest", function (table) {
 
  
       public async insert(){
-        await this.dbConnector.insert({ value:  "clientID", time:  new Date()}).into("TimeTest").returning("*");
+        try{
+          await this.dbConnector.insert({ value:  "clientID", time:  new Date()}).into("TimeTest").returning("*");
+        }
+        catch(err){
+          return true;
+        }
+        
       }
 
 }
