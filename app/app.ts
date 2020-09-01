@@ -6,8 +6,14 @@ import db from './dbconnector';
 
 
 // Create a new express application instance
-const app: express.Application = express();
 db.init();
+const app: express.Application = express();
+app.get("/insert", async (req: any, res: any) => {
+  await db.insert();
+  res.statusCode = 400;
+  res.json("success");
+});
+
 
 app.listen(4567, function () {
   console.log('Example app listening on port 3001!');

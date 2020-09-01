@@ -28,10 +28,10 @@ class DBConnector {
       //     console.log(data.length);
           
       //     console.log(new Date());
-        for(let i=0;i<10000;i++){
-            await this.dbConnector.insert({ value:  "clientID", time:  new Date()}).into("TimeTest").returning("*");
-            console.log("hi"+new Date())
-        }
+        // for(let i=0;i<10000;i++){
+        //     await this.dbConnector.insert({ value:  "clientID", time:  new Date()}).into("TimeTest").returning("*");
+        //     console.log("hi"+new Date())
+        // }
         
       }
 
@@ -44,6 +44,9 @@ return this.dbConnector.schema.createTable("TimeTest", function (table) {
       }
 
  
+      public async insert(){
+        await this.dbConnector.insert({ value:  "clientID", time:  new Date()}).into("TimeTest").returning("*");
+      }
 
 }
 
