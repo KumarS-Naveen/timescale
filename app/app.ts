@@ -15,8 +15,8 @@ app.get("/insert", async (req: any, res: any) => {
 });
 
 
-app.listen(4567, function () {
-  console.log('Example app listening on port 3001!');
+app.listen(process.env.PORT, function () {
+  console.log('Example app listening on port '+ process.env.PORT);
 });
 
 
