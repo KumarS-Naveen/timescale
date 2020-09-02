@@ -3,7 +3,7 @@ import Knex from "knex";
 class DBConnector {
     dbConnector: Knex;
     constructor() {
-        // process.env.NODE_TLS_REJECT_UNAUTHORIZED='0' // enable for local
+         process.env.NODE_TLS_REJECT_UNAUTHORIZED='0' // enable for local
         // Checks to where the connection should be done. If in loco then a sqlite db should be used insteade Postgresql
         this.dbConnector = Knex( {
             client: "postgres",
