@@ -58,20 +58,8 @@ var DBConnector = /** @class */ (function () {
     }
     DBConnector.prototype.init = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var data;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        // await this.createTables();
-                        console.log(new Date());
-                        return [4 /*yield*/, this.dbConnector.select("*")
-                                .from("TimeTest")];
-                    case 1:
-                        data = _a.sent();
-                        console.log(data);
-                        console.log(new Date());
-                        return [2 /*return*/];
-                }
+                return [2 /*return*/];
             });
         });
     };
@@ -83,6 +71,20 @@ var DBConnector = /** @class */ (function () {
                         table.dateTime("time").notNullable();
                         table.string("Identifier").unique();
                     })];
+            });
+        });
+    };
+    DBConnector.prototype.insert = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                console.log("date" + new Date());
+                try {
+                    this.dbConnector.insert({ value: "clientID", time: new Date() }).into("TimeTest").returning("*");
+                }
+                catch (err) {
+                    return [2 /*return*/, true];
+                }
+                return [2 /*return*/];
             });
         });
     };

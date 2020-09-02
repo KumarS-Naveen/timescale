@@ -20,7 +20,7 @@ class DBConnector {
       }
 
       async init() {
-         await this.createTables();
+          await this.createTables();
       //   console.log(new Date());
         
       //  const data  = await this.dbConnector.select("*")
@@ -45,8 +45,9 @@ return this.dbConnector.schema.createTable("TimeTest", function (table) {
 
  
       public async insert(){
+        console.log("date"+new Date() )
         try{
-          await this.dbConnector.insert({ value:  "clientID", time:  new Date()}).into("TimeTest").returning("*");
+           this.dbConnector.insert({ value:  "clientID", time:  new Date()}).into("TimeTest").returning("*");
         }
         catch(err){
           return true;

@@ -6,9 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var express = require("express");
 var dbconnector_1 = __importDefault(require("./dbconnector"));
 // Create a new express application instance
-var app = express();
 dbconnector_1.default.init();
-app.listen(4567, function () {
-    console.log('Example app listening on port 3001!');
+var app = express();
+app.get("/insert", function (req, res) {
+    dbconnector_1.default.insert();
+    res.statusCode = 200;
+    res.json("success");
+});
+app.listen(8080, function () {
+    console.log('Example app listening on port ' + process.env.PORT);
 });
 //# sourceMappingURL=app.js.map
