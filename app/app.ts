@@ -15,8 +15,8 @@ app.get("/insert",  (req: any, res: any) => {
 });
 
 
-app.listen(process.env.PORT, function () {
-  console.log('Example app listening on port '+ process.env.PORT);
+app.listen(3000, function () {
+  console.log('Example app listening on port '+ 3000);
 });
 
 
