@@ -36,11 +36,17 @@ class DBConnector {
       }
 
         async createTables(){
-return this.dbConnector.schema.createTable("TimeTest", function (table) {
-    table.string("value").notNullable();
-    table.dateTime("time").notNullable();
-    table.string("Identifier").unique();
-  })
+          try{
+            return this.dbConnector.schema.createTable("TimeTest", function (table) {
+              table.string("value").notNullable();
+              table.dateTime("time").notNullable();
+              table.string("Identifier").unique();
+            })
+          }
+          catch(err){
+            return true;
+          }
+
       }
 
  
